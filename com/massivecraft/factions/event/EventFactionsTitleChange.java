@@ -1,0 +1,38 @@
+package com.massivecraft.factions.event;
+
+import com.massivecraft.factions.entity.MPlayer;
+import org.bukkit.command.CommandSender;
+import org.bukkit.event.HandlerList;
+
+
+
+
+public class EventFactionsTitleChange
+  extends EventFactionsAbstractSender
+{
+  private static final HandlerList handlers = new HandlerList();
+  public HandlerList getHandlers() { return handlers; }
+  public static HandlerList getHandlerList() { return handlers; }
+  
+
+  private final MPlayer mplayer;
+  
+  public MPlayer getMPlayer()
+  {
+    return mplayer;
+  }
+  
+  public String getNewTitle() { return newTitle; }
+  public void setNewTitle(String newTitle) { this.newTitle = newTitle; }
+  
+
+
+  private String newTitle;
+  
+  public EventFactionsTitleChange(CommandSender sender, MPlayer mplayer, String newTitle)
+  {
+    super(sender);
+    this.mplayer = mplayer;
+    this.newTitle = newTitle;
+  }
+}
